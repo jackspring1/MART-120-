@@ -1,0 +1,22 @@
+#specificLink{
+    color:blueviolet;
+    background-color:yellow;
+}
+.blueColor{
+    color:blue;
+    font-family:arial;
+    font-size:24px;
+    background-color:yellow;
+}
+.greenColor{
+    color:yellowgreen;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font: size 28px;
+}
+#specificLink1{
+    color: aqua;
+
+}
+body{
+    background-image: url("backgourndimage.jpeg");
+}
