@@ -1,25 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <button type="button">Button</button>
-    <h1>Contact Us</h1>
+<html>
+<title>Contact Us</title>
+<body style="background-color: blueviolet;">
+    <div style="margin-left: 35px;">
+        <h1>Contact Us</h1>
         <p></p>
-        <form action="">
-            <p>First Name: <input type="text" id="fName"></p>
-            <p>Last Name: <input type="text" id="lName"></p>
-            <button id="btnSubmit">Submit My Info</button>
-        </form>
-        <p><a href="myfirstpage.html">Go to the Home Page</a></p>
-        <p><a href="secondpage.html">Go to the Short Story</a></p>
         
+            <p>First Name: <input type="text" id="fName">&nbsp;<span id="fNameMessage"></span></p>
+            <p>Last Name: <input type="text" id="lName">&nbsp;<span id="lNameMessage"></span></p>
+            <p>Email: <input type="text" id="eName">&nbsp;<span id="eNameMessage"></span></p>
+            
+            <button id="btnSubmit" class="btn btn-primary" onclick='checkboxes();'>Submit My Info</button>
+        <p><a href="myfirstpage.html">Home Page</a>
+            &nbsp;|&nbsp;<a href="secondpage.html">Short Story</a></p>
+    </div>
 </body>
-</html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+       
+        function checkboxes()
+        {
+            var firstName = document.getElementById("fName").value;
+            if(firstName == "")
+            {
+                document.getElementById("fName").focus();
+                document.getElementById("fName").style.backgroundColor = "red";
+                document.getElementById("fNameMessage").innerHTML = "* Required";
+                document.getElementById("fNameMessage").style.color = "red";
+                
+        
+            }
+        
+            var email = document.getElementById("eName").value;
+            if(email == "")
+            {
+            document.getElementById("eName").focus();
+            document.getElementById("eName").style.backgroundColor = "red";
+            document.getElementById("eNameMessage").innerHTML = "* Required";
+            document.getElementById("eNameMessage").style.color = "red";
+            
+       
+            }
+            var lastName = document.getElementById("lName").value;
+            if(lastName == "")
+            {
+            document.getElementById("lName").focus();
+            document.getElementById("lName").style.backgroundColor = "red";
+            document.getElementById("lNameMessage").innerHTML = "* Required";
+            document.getElementById("lNameMessage").style.color = "red";
+
+           
+             }
+        }
+        
+</script>
+</head>
+</head>
+
