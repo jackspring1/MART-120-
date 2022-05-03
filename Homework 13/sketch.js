@@ -13,7 +13,7 @@ var shapeYSpeed;
 
 var mouseShapeX;
 var mouseShapeY;
-function setup ()
+function setup()
 {
     createCanvas(500, 600);
 
@@ -24,24 +24,57 @@ function setup ()
 
 function draw()
 {
-    background(10,55,80);
+    background(120,45,78);
     stroke(0);
     fill(0);
-    rect(0,0,width,10);
-
-    rect(0,0,10,height);
-
-    rect(0,height-10,width,10);
-
-    rect(width-10,0,10,height-50);
+    
+    createBorders(10);
 
     textSize(11);
     text("EXIT", width-50,height-50);
 
 //the character
-fill(20,60,146);
-circle(characterX,characterY,25);
+drawCharacter();
+characterMovement();
 
+fill(4,150,61);
+circle(shapeX, shapeY, 10);
+
+shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+
+shapeX += shapeXSpeed;
+shapeY += shapeYSpeed;
+
+if(shapeX > width)
+{
+    shapeX = 0;
+}
+if(shapeX < 0)
+{
+    shapeX = width;
+}
+if(shapeY > height)
+{
+    shapeY = 0;
+}
+if(shapeY < 0)
+{
+    shapeY = height;
+}
+
+if(characterX > width && characterY > width-50)
+{
+    fill(0);
+    stroke(6);
+    textSize(26);
+    text("You Win!", width/2-50, height/2-50);
+}
+fill(120,132,159);
+circle(mouseShapeX, mouseShapeY, 25);
+}
+function characterMovement()
+{
 if(keyIsDown(w))
 {
     characterY -= 7;
@@ -57,45 +90,31 @@ if(keyIsDown(d))
 if(keyIsDown(a))
 {
     characterX -= 7;
-}
-fill(17,134,45);
-circle(shapeX, shapeY, 10);
-shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+    console.log("movement: " + characterX);
 
-shapeX += shapeXSpeed;
-shapeY += shapeYSpeed;
-
-if(shapeX > width)
+}
+}
+function createCharacter(x,y)
 {
-    shapeX = 0;
+    characterX = x;
+    characterY = y;
+    console.log(characterX);
 }
-if(shapeX < 0)
-{ 
-    shapeX = width;
-}
-if(shapeY > height)
+function drawCharacter()
 {
-    shapeY = 0;
+    fill(24,55,134);
+    circle(characterX,characterY,25);
 }
-if(shapeY < 0)
+function createBorders(thickness)
 {
-    shapeY = height;
-}
-
-if(characterX > width && characterY > width-50)
-{
-    fill(20);
-    stroke(5);
-    textSize(26);
-    text("You've done it!", width/2-50, height/2-50);
-}
-fill(120,130,140);
-circle(mouseShapeX, mouseShapeY, 25);
+    rect(0,0,width,thickness);
+    rect(0,0,thickness,height);
+    rect(0, height-thickness,width, thickness);
+    rect(width-thickness,0,thickness,height-50);
+    
 }
 function mouseClicked()
 {
     mouseShapeX = mouseX;
     mouseShapeY = mouseY;
 }
-
